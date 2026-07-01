@@ -1,3 +1,4 @@
+import pandas
 from flask import Flask, request, jsonify
 from docx import Document
 import os
