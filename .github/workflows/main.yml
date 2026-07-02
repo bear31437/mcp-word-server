@@ -1,0 +1,22 @@
+name: Python Check
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+      
+      - name: Install dependencies
+        run: pip install flask python-docx
+      
+      - name: Check syntax
+        run: python -m py_compile mcp_server.py && echo "語法檢查通過" 
